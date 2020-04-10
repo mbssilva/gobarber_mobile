@@ -13,7 +13,7 @@ function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+        initialRouteName="SignIn"
         headerMode="none"
         screenOptions={{ headerShown: false }}
       >
