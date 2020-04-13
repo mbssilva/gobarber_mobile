@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+
+import New from './pages/New';
 
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
@@ -21,6 +22,7 @@ function Routes() {
     <NavigationContainer>
       {signed ? (
         <Tab.Navigator
+          lazy={false}
           tabBarOptions={{
             activeTintColor: '#fff',
             inactiveTintColor: 'rgba(255, 255, 255, 0.55)',
@@ -36,6 +38,11 @@ function Routes() {
             name="Dashboard"
             component={Dashboard}
             options={Dashboard.navigationOptions}
+          />
+          <Tab.Screen
+            name="New"
+            component={New}
+            options={New.navigationOptions}
           />
           <Tab.Screen
             name="Profile"
