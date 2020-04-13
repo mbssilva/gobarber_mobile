@@ -7,14 +7,13 @@ import { updateProfileSuccess, updateProfileFailure } from './actions';
 
 export function* updateProfile({ payload }) {
   try {
-    const { name, email, avatar_id, ...rest } = payload.data;
+    const { name, email, ...rest } = payload.data;
 
     const aux = rest.oldPassword ? rest : {};
 
     const profile = {
       name,
       email,
-      avatar_id,
       ...aux,
     };
 
@@ -24,8 +23,6 @@ export function* updateProfile({ payload }) {
 
     yield put(updateProfileSuccess(response.data));
   } catch (err) {
-    console.tron.error(err);
-
     Alert.alert(
       'Falha na atualização',
       'Houve um erro na atualização do perfil! Verifique seus dados'
